@@ -1,0 +1,31 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 45px;
+    max-width: 1240px;
+    height: 68px;
+
+    .logo {
+        width: 210px;
+        color: #FF6060;
+    }
+    
+    .navbar {
+        display: flex;
+        width: 50%;
+        justify-content: flex-end;
+
+        h2 {
+            margin-left: 57px;
+            font-weight: 500;
+            font-size: 24px;
+            color: black;
+        }
+
+        h2:hover {
+            cursor: pointer;
+        }
+    }  
+}

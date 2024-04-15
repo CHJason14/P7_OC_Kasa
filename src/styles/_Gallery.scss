@@ -1,0 +1,39 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #F6F6F6;
+    border-radius: 25px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 25px 25px;
+
+    .card-logements {
+        position: relative;
+        width: 340px;
+        height: 340px;
+        border-radius: 10px;
+        margin: 25px auto;
+
+        .card-img {
+            width: 340px;
+            height: 340px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        h3 {
+            position: absolute;
+            top: 75%;
+            margin: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            text-shadow: 0 4px 4px #000000;
+        }
+    }
+
+    .card-logements:hover {
+        cursor: pointer;
+    }
+}

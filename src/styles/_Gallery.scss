@@ -1,12 +1,13 @@
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
     justify-content: flex-start;
     background-color: #F6F6F6;
     border-radius: 25px;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 25px 25px;
 
     .card-logements {
         position: relative;
@@ -35,5 +36,30 @@
 
     .card-logements:hover {
         cursor: pointer;
+    }
+}
+
+@media (max-width: 1140px) {
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 780px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+        justify-content: center;
+
+        .card-logements {
+            width: 90%;
+
+            .card-img {
+                width: 100%;
+            }
+        }
     }
 }

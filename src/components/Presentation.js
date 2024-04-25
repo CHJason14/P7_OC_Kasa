@@ -1,11 +1,12 @@
 import '../styles/style.css'
-import imgBanner from '../assets/IMG.png'
 
-function Presentation() {
+function Presentation({src='', text=''}) {
     return (
-        <div className='presentation'>
-            <img src={imgBanner} alt='falaise avec la mer' className='imgBanner' />
-            <h1>Chez vous, partout et ailleurs</h1>
+        <div className='presentation-container'>
+            <div className='presentation'>
+                <img src={src} alt='falaise avec la mer' className='imgBanner' />
+                <h1>{text}</h1>
+            </div>
         </div>
     )
 }

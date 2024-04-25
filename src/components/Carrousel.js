@@ -1,44 +1,40 @@
 import logements from '../datas/logements.json'
 import arrowLeft from '../assets/arrow_left.png'
 import arrowRight from '../assets/arrow_right.png'
-import logo from '../assets/LOGO.png'
+import '../styles/style.css'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Carrousel() {
 
+  const [imgNumber, setImgNumber] = useState(1);
+  const [slideActive, setSlideActive] = useState(0);
+
     let imgCarrousel = 0;
-    const params = useParams();
-    {logements.map((logement) => {
+    let params = useParams();
+    logements.forEach((logement) => {
         if (params.id === logement.id) {
-        imgCarrousel = logement.pictures;
+            imgCarrousel = logement.pictures;
         };
-    }
-    )}
-
-    const buttons = document.querySelectorAll(".arrow");
-    let slide = document.querySelector(".carrousel-img");
-
-    let slideActive = 0;
-    let imgNumber = 1;
-
-    buttons.forEach(button => {
-    button.addEventListener("click", (e) => {
-        slideActive += (e.target.id === "next" ? 1 : -1);
-        slideActive = (slideActive + imgCarrousel.length) % imgCarrousel.length;
-        slide.src = imgCarrousel[slideActive];
-        let imgNumber = slideActive + 1;
-        console.log(imgNumber);
-        console.log("click");
-        });
     });
+
+    const carrouselOnClick = (e) => {
+      let newSlideActive = slideActive + (e.target.id === "next" ? 1 : -1);
+      newSlideActive = (newSlideActive + imgCarrousel.length) % imgCarrousel.length;
+      setSlideActive(newSlideActive);
+      setImgNumber(newSlideActive + 1);
+  };
+
   return (
-    <div>
-    <img className="carrousel-img" src={imgCarrousel[0]} alt="Logements"/>
-		<img className="arrow arrow_left" id="prev" src={arrowLeft} alt="Flèche gauche"/>
-		<img className="arrow arrow_right" id="next" src={arrowRight} alt="Flèche droite"/>
-		<div className="dots">
-            <p>{imgNumber}/{imgCarrousel.length}</p>
-	    </div>
+    <div className='carrousel-container'>
+      <div className='carrousel-content'>
+        <img className="carrousel-img" src={imgCarrousel[slideActive]} alt="Logements"/>
+        <img onClick={carrouselOnClick} className="arrow arrow_left" id="prev" src={arrowLeft} alt="Flèche gauche"/>
+        <img onClick={carrouselOnClick} className="arrow arrow_right" id="next" src={arrowRight} alt="Flèche droite"/>
+        <div className="compteur">
+          <p id='compteur'>{imgNumber}/{imgCarrousel.length}</p>
+        </div>
+      </div>
     </div>
   )
 }

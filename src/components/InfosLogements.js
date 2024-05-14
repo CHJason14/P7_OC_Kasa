@@ -3,7 +3,7 @@ import MenuDropDownText from './MenuDropDownText';
 import MenuDropDownList from './MenuDropDownList';
 import '../styles/style.css'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function InfosLogements() {
 
@@ -60,6 +60,10 @@ export default function InfosLogements() {
             logementSelected = logement;
         }
     });
+
+    useEffect(() => {
+        document.title = logementSelected.title + ' - Kasa';
+    },[]);
 
     const renderRating = () => {
         let stars = [];

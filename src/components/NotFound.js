@@ -1,5 +1,5 @@
 import logements from '../datas/logements.json'
-import { useNavigate, Link, useParams, useLocation} from 'react-router-dom';
+import { useNavigate, useLocation} from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function NotFound() {
@@ -12,7 +12,6 @@ export default function NotFound() {
     useEffect(() => {
         if (idPossible.includes(location.pathname))
         {
-            console.log("Good");
         }
         else 
         {

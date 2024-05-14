@@ -1,8 +1,13 @@
 import MenuDropDownText from './MenuDropDownText';
 import '../styles/style.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function InfosPropos() {
+
+    useEffect(() => {
+     document.title = 'A Propos - Kasa';
+      },[]);
+    
 
     const [ fiabiliteDisplayed, setFiabiliteDisplayed ] = useState(false);
     const [ respectDisplayed, setRespectDisplayed ] = useState(false);
@@ -56,6 +61,7 @@ export default function InfosPropos() {
             chevronSecurite.style.transform = '';
         };
     }
+
 
   return (
     <div className='MenuDropDownPropos'>

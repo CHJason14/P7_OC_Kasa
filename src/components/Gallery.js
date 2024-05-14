@@ -1,8 +1,14 @@
 import '../styles/style.css'
 import logements from '../datas/logements.json'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function Gallery() {
+
+    useEffect(() => {
+        document.title = 'Acceuil - Kasa';
+         },[]);
+
     return (
         <section className='gallery'>
             {logements.map((logement) => ( 
